@@ -24,7 +24,7 @@ class GuestsController < ApplicationController
     end
 
     def create
-        @guest = Guest.new(guest_params)
+        @guest = Guest.new(guest_params.merge(wedding: current_user.wedding))
         if @guest.save
             render json: @guest, serializer: GuestSerializer
         else
