@@ -14,7 +14,5 @@ Rails.application.routes.draw do
 
   patch "/weddings/:id/invite_guests", to: "weddings#invite_guests"
 
-  post "/users/guest_signup", to: "users#guest_signup"
-
   mount ActiveStorage::Engine => "/rails/active_storage"
 end
