@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :create, :show, :index, :update ]
   resources :weddings, only: [ :create, :show, :update ]
+  resources :guests
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
