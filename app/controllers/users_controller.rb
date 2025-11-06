@@ -54,20 +54,6 @@ class UsersController < ApplicationController
         end
     end
 
-    def guest_signup
-        @user = User.new(user_params.merge(role: "guest"))
-        if @user.save
-            login!
-            # UserMailer.with(user: @user).guest_welcome_email.deliver
-            render json: @user, serializer: UserSerializer
-        else
-            render json: {
-                status: 500,
-                errors: @user.errors.full_messages
-            }
-        end
-    end
-
     private
 
     def user_params
